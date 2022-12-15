@@ -1,7 +1,9 @@
-package com.example.myapplication
+package com.example.myapplication.ui.shoppinglist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
+import com.example.myapplication.R
 import com.example.myapplication.data.db.ShoppingDatabase
 
 class ShoppingActivity : AppCompatActivity() {
@@ -9,6 +11,8 @@ class ShoppingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
 
-        println(ShoppingDatabase::class.java)
+
+
+        val viewModel = ViewModelProviders.of(this).get(ShoppingViewModel::class.java)
     }
 }
