@@ -37,9 +37,9 @@ class ShoppingActivity : AppCompatActivity() {
             AddShoppingItemDialog(this,
             object : AddDialogListener {
                 override fun onAddButtonClicked(item: ShoppingItem) {
-
+                    viewModel.upsert(item)
                 }
-            })
+            }).show()
         }
 
     }

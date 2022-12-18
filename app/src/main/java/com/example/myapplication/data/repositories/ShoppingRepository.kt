@@ -9,9 +9,12 @@ class ShoppingRepository(
     private val db: ShoppingDatabase
 ) {
     //po wywołaniu metody upsert/delete/getAllShoppingItems w tej klasie zostaje wywołana metoda ze shoppingdatabase dziedzicząca z interfejsu shoppingDao 3 metody upsert/delete/getAllShoppingItems
-    suspend fun upsert(item: ShoppingItem) = db.getShoppingDao().upsert(item)
+    suspend fun upsert(item: ShoppingItem) : Unit {
 
-    suspend fun delete(item: ShoppingItem) = db.getShoppingDao().delete(item)
+        return db.getShoppingDao().upsert(item)
+    }
+
+    suspend fun delete(item: ShoppingItem) : Unit = db.getShoppingDao().delete(item)
 
     fun getAllShoppingItems() = db.getShoppingDao().getAllShoppingItems()
 
